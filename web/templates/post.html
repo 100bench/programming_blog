@@ -1,0 +1,15 @@
+{{ define "content" }}
+<h2>{{ .post.Title }}</h2>
+<p><strong>Published:</strong> {{ .post.TimeCreated.Format "January 2, 2006" }}</p>
+<p><strong>Category:</strong> <a href="/category/{{ .post.Category.Slug }}">{{ .post.Category.Name }}</a></p>
+
+{{ if .post.Photo }}
+    <img src="/static/{{ .post.Photo }}" alt="{{ .post.Title }}" style="max-width: 100%; height: auto;">
+{{ end }}
+
+<div>
+    {{ .post.Content }}
+</div>
+
+<p><a href="/">Back to all posts</a></p>
+{{ end }}

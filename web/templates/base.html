@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .title }} - My Awesome Blog</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Add any other global CSS or meta tags here -->
+</head>
+<body>
+    <header>
+        <h1>My Awesome Blog</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/addpage">Add Post</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/logout">Logout</a></li>
+                <!-- Categories will be dynamic -->
+                {{ range .categories }}
+                <li><a href="/category/{{ .Slug }}">{{ .Name }}</a></li>
+                {{ end }}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {{ template "content" . }}
+    </main>
+
+    <footer>
+        <p>&copy; 2023 My Awesome Blog</p>
+    </footer>
+
+    <!-- Add any global JavaScript here -->
+</body>
+</html>

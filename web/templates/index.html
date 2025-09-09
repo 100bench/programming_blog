@@ -1,0 +1,17 @@
+{{ define "content" }}
+<h2>{{ .title }}</h2>
+
+{{ if .posts }}
+    {{ range .posts }}
+        <article>
+            <h3><a href="/post/{{ .Slug }}">{{ .Title }}</a></h3>
+            <p>{{ .Content }}</p>
+            <p>Category: <a href="/category/{{ .Category.Slug }}">{{ .Category.Name }}</a></p>
+            <p>Published: {{ .TimeCreated.Format "January 2, 2006" }}</p>
+        </article>
+        <hr>
+    {{ end }}
+{{ else }}
+    <p>No posts found.</p>
+{{ end }}
+{{ end }}

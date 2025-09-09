@@ -1,0 +1,25 @@
+{{ define "content" }}
+<h2>{{ .title }}</h2>
+
+<form action="/api/posts" method="POST">
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="slug">Slug:</label><br>
+    <input type="text" id="slug" name="slug" required><br><br>
+
+    <label for="content">Content:</label><br>
+    <textarea id="content" name="content" rows="10" cols="50"></textarea><br><br>
+
+    <label for="photo">Photo URL:</label><br>
+    <input type="text" id="photo" name="photo"><br><br>
+
+    <label for="category_id">Category ID:</label><br>
+    <input type="number" id="category_id" name="category_id" required><br><br>
+
+    <label for="is_published">Published:</label>
+    <input type="checkbox" id="is_published" name="is_published" value="true" checked><br><br>
+
+    <input type="submit" value="Add Post">
+</form>
+{{ end }}
